@@ -1,0 +1,28 @@
+{
+  "Pickaxe": {
+    "parts": {
+      "Head": ["Pickaxe Head"],
+      "Handle": ["Tool Rod"],
+      "Extra": ["Binding"]
+    },
+    "props": [
+      "Durability",
+      "Mining Level",
+      "Mining Speed",
+      "Attack"
+    ]
+  },
+  "Hammer": {
+    "parts": {
+      "Head": ["Hammer Head", "Large Plate", "Large Plate"],
+      "Handle": ["Tough Tool Rod"],
+      "Extra": []
+    },
+    "props": [
+      "Durability",
+      "Mining Level",
+      "Mining Speed",
+      "Attack"
+    ]
+  }
+}

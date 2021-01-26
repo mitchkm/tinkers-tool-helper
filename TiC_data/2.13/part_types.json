@@ -1,0 +1,18 @@
+{
+  "Head": {
+    "durability": 1,
+    "mining_level": "STONE",
+    "mining_speed": 1.0,
+    "attack": 1.0,
+    "trait": "Ecological"
+  },
+  "Handle": {
+    "durability": 1,
+    "modifier": 1.0,
+    "trait": "Ecological"
+  },
+  "Extra": {
+    "durability": 1,
+    "trait": "Ecological"
+  }
+}

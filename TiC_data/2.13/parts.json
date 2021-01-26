@@ -1,0 +1,20 @@
+{
+  "Tool Rod": {
+    "cost": 1
+  },
+  "Tough Tool Rod": {
+    "cost": 3
+  },
+  "Pickaxe Head": {
+    "cost": 2
+  },
+  "Binding": {
+    "cost": 1
+  },
+  "Large Plate": {
+    "cost": 8
+  },
+  "Hammer Head": {
+    "cost": 6
+  }
+}
