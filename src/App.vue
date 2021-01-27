@@ -1,72 +1,86 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
+    <v-card>
+      <v-tabs
+        v-model="tab"
+        background-color="deep-purple accent-4"
+        centered
+        dark
+        icons-and-text
       >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>fas fa-external-link-alt</v-icon>
-      </v-btn>
-    </v-app-bar>
+        <v-tabs-slider></v-tabs-slider>
 
-    <v-main>
-      <HelloWorld/>
-    </v-main>
+        <v-tab href="#t1">
+          Tool Builder
+          <v-icon>mdi-pickaxe</v-icon>
+        </v-tab>
+
+        <v-tab href="#t2">
+          Materials
+          <v-icon>mdi-nut</v-icon>
+        </v-tab>
+
+        <v-tab href="#t3">
+          Traits + Modifiers
+          <v-icon>mdi-chart-box-outline</v-icon>
+        </v-tab>
+
+        <v-tab href="#t4">
+          Mods + Addons
+          <v-icon>mdi-text-box-plus-outline</v-icon>
+        </v-tab>
+      </v-tabs>
+
+      <v-tabs-items v-model="tab">
+
+        <v-tab-item value="t1">
+          <tool-builder-tab/>
+        </v-tab-item>
+
+        <v-tab-item value="t2">
+          <materials-tab/>
+        </v-tab-item>
+
+        <v-tab-item value="t3">
+          <traits-modifiers-tab/>
+        </v-tab-item>
+
+        <v-tab-item value="t4">
+          <addons-mods-tab/>
+        </v-tab-item>
+
+      </v-tabs-items>
+    </v-card>
   </v-app>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import Vue from "vue";
+import { Component } from "vue-property-decorator";
 
-export default Vue.extend({
-  name: 'App',
+import ToolBuilderTab from "./components/ToolBuilderTab.vue";
+import MaterialsTab from "./components/MaterialsTab.vue";
+import TraitsModifiersTab from "./components/TraitsModifiersTab.vue";
+import AddonsModsTab from "./components/AddonsModsTab.vue";
 
+@Component({
   components: {
-    HelloWorld,
+    ToolBuilderTab,
+    MaterialsTab,
+    TraitsModifiersTab,
+    AddonsModsTab,
   },
-
-  data: () => ({
-    //
-  }),
-});
+})
+export default class App extends Vue {
+  set tab(tab: string) {
+    this.$router.replace({ query: { ...this.$route.query, tab } });
+  }
+  get tab() {
+    return this.$route.query.tab as string;
+  }
+}
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
