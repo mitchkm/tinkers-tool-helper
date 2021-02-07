@@ -11,7 +11,7 @@
         <v-tabs-slider></v-tabs-slider>
 
         <v-tab href="#t1">
-          Tool Builder
+          Builder
           <v-icon>mdi-pickaxe</v-icon>
         </v-tab>
 
@@ -32,23 +32,25 @@
       </v-tabs>
 
       <v-tabs-items v-model="tab">
-
         <v-tab-item value="t1">
-          <tool-builder-tab/>
+          <div class="spacer"></div>
+          <tool-builder-tab />
         </v-tab-item>
 
         <v-tab-item value="t2">
-          <materials-tab/>
+          <div class="spacer"></div>
+          <materials-tab />
         </v-tab-item>
 
         <v-tab-item value="t3">
-          <traits-modifiers-tab/>
+          <div class="spacer"></div>
+          <traits-modifiers-tab />
         </v-tab-item>
 
         <v-tab-item value="t4">
-          <addons-mods-tab/>
+          <div class="spacer"></div>
+          <addons-mods-tab />
         </v-tab-item>
-
       </v-tabs-items>
     </v-card>
   </v-app>
@@ -82,5 +84,18 @@ export default class App extends Vue {
 </script>
 
 <style lang="scss">
-
+#app {
+  width: 80%;
+  margin: auto;
+  background-color: bisque;
+}
+body {
+  background-color: bisque;
+}
+div.spacer {
+  display: block;
+  opacity: 0;
+  width: 100%;
+  height: 20px;
+}
 </style>

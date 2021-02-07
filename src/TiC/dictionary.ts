@@ -18,5 +18,22 @@ export interface TiCData {
  */
 export interface TiCDict { [key: string]: TiCData; }
 
-const d: TiCDict = {};
+export class TiCDictionary {
+  static _instance?: TiCDictionary;
+  static get instance() {
+    if (!TiCDictionary._instance) {
+      TiCDictionary._instance = new TiCDictionary();
+    }
+    return TiCDictionary._instance;
+  }
+
+  dict: TiCDict = {};
+
+  get versions() {
+    return Object.keys(this.dict);
+  }
+
+}
+
+const d = TiCDictionary.instance;
 export { d as TiC} ;
